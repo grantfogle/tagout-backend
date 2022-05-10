@@ -34,7 +34,7 @@ app.get('/convert-to-json', async () => {
     var text = fs.readFileSync("./elk.txt", 'utf-8');
 
     var newlines = text.split('\n');
-    var replacedTexts = removeUnneededText(newlines.join(''));
+    var replacedTexts = removeUnneededText(newlines);
 
     console.log(replacedTexts);
     // remove unneeded text
@@ -45,7 +45,7 @@ app.get('/convert-to-json', async () => {
 
 function removeUnneededText(text) {
     // 
-
+    console.log(text);
     // Post-DrawSuccessful# DrawnBalanceRes NonRes ResNonResUnrestrictedRestricted
     let finalText = text;
     let elimateTextCodes = [
@@ -58,11 +58,11 @@ function removeUnneededText(text) {
         'AdultYouthLandowner (LPP)',
         'ChoicePreference Points',
         'UnrestrictedRestricted',
-        'Colorado Parks and Wildlife'
+        'Colorado Parks and Wildlife',
     ];
-    elimateTextCodes.forEach((eliminateText, i) => {
-        finalText = finalText.replace(eliminateText, '');
-    });
+    // elimateTextCodes.forEach((eliminateText, i) => {
+    //     finalText = finalText.replace(eliminateText, '');
+    // });
     return finalText;
 }
 
