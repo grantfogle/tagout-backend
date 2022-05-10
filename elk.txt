@@ -1,0 +1,767 @@
+DrawnHunt CodeList
+
+EE001E1R  
+Pre-Draw Applicants
+
+1
+
+Preference Points
+    Res NonRes Res NonRes 
+28  -   1      -    -       - -
+27-2----
+2623----
+25-2----
+24-1----
+23-1----
+22-5----
+2121----
+2042----
+1922----
+1881----
+1721----
+1633----
+1552----
+1461----
+1343----
+1251----
+1153----
+1052----
+962----
+8143----
+764--1-
+61062-1-
+5143----
+4116-1--
+314144221
+213112133
+
+Post-Draw Successful
+AdultYouthLandowner (LPP)
+ChoicePreference Points
+Res NonRes Res NonRes 
+UnrestrictedRestricted
+1
+28-1----
+27------
+262-----
+25------
+24------
+23------
+22------
+212-----
+202-----
+191-----
+18------
+17------
+161-----
+15------
+14------
+13------
+12------
+11------
+10------
+9------
+8------
+7----1-
+6------
+5------
+4------
+3-----1
+2------
+
+Post-Draw
+Successful
+# DrawnBalanceRes NonRes ResNonRes
+Unrestricted
+Restricted
+110810011
+73%9%0%0%9%9%
+                  Colorado Parks and Wildlife  
+                 2021 Primary ELK Post Draw Report
+Draw Recap
+5/14/2021 11:52:54 PM
+Page 3 of 963
+
+1
+122411633
+03260771-
+Total Choice 11951871617117
+Total Choice 239452322
+Total Choice 324303300
+Total Choice 49221000
+Grand Total2672842223139
+Landowner Leftover Choice 122
+Landowner Leftover Choice 222
+Landowner Leftover Choice 300
+1
+1------
+0------
+Total Choice 1810011
+Total Choice 2000000
+Total Choice 3000000
+Total Choice 4000000
+Grand Total810011
+Landowner Leftover Choice 100
+Landowner Leftover Choice 200
+Landowner Leftover Choice 300
+                  Colorado Parks and Wildlife  
+                 2021 Primary ELK Post Draw Report
+Draw Recap
+5/14/2021 11:52:54 PM
+Page 4 of 963
+
+# DrawnHunt CodeList
+2EE001O1AA
+Remaining 
+Balance
+0
+Total Quota 
+Amount
+2
+Pre-Draw
+Quotas
+QuotaAdultYouth Landowner (LPP)
+Original
+General Draw
+Res NonRes Preference
+Unrestricted
+Restricted
+22
+Determined 
+by Draw
+Determined 
+by Draw
+N/A00
+ResNonResResNonRes
+Unrestricted
+Restricted
+Drawn Out At
+16 Pref 
+Points
+None 
+Drawn
+None 
+Drawn
+None 
+Drawn
+None DrawnNone Drawn
+# Drawn at Final Level1 of 1N/AN/AN/AN/AN/A
+% Drawn at Final Level100%N/AN/AN/AN/AN/A
+EE001O1A  
+General AppsLPP Apps
+Total Choice 1 1260
+Total Choice 2 382
+Total Choice 3 330
+Total Choice 4 250
+Regulation Level# Drawn
+LPP Unrestricted (up to) 10%0
+LPP Restricted (up to) 10%0
+Youth Preference (up to) N/AN/A
+NonResident Cap (up to) 20%0
+Hybrid Draw (up to) N/AN/A
+Pre-Draw Applicants
+AdultYouthLandowner (LPP)
+ChoicePreference Points
+Res NonRes Res NonRes 
+UnrestrictedRestricted
+1
+171-----
+1611----
+153-----
+141-----
+133-----
+1211----
+113-----
+10------
+93-----
+81-----
+711----
+613----
+54-----
+4441---
+395----
+24611--
+11413----
+0141533--
+Total Choice 168495400
+Total Choice 220180021
+Total Choice 314180100
+Total Choice 47180000
+Grand Total1091035521
+Landowner Leftover Choice 100
+Landowner Leftover Choice 200
+Landowner Leftover Choice 300
+Post-Draw Successful
+AdultYouthLandowner (LPP)
+ChoicePreference Points
+Res NonRes Res NonRes 
+UnrestrictedRestricted
+1
+171-----
+161-----
+15------
+14------
+13------
+12------
+11------
+10------
+9------
+8------
+7------
+6------
+5------
+4------
+3------
+2------
+1------
+0------
+Total Choice 1200000
+Total Choice 2000000
+Total Choice 3000000
+Total Choice 4000000
+Grand Total200000
+Landowner Leftover Choice 100
+Landowner Leftover Choice 200
+Landowner Leftover Choice 300
+Post-Draw
+Successful
+# DrawnBalanceRes NonRes ResNonRes
+Unrestricted
+Restricted
+20200000
+100%0%0%0%0%0%
+                  Colorado Parks and Wildlife  
+                 2021 Primary ELK Post Draw Report
+Draw Recap
+5/14/2021 11:52:54 PM
+Page 5 of 963
+
+# DrawnHunt CodeList
+32EE002E1RA
+Remaining 
+Balance
+0
+Total Quota 
+Amount
+32
+Pre-Draw
+Quotas
+QuotaAdultYouth Landowner (LPP)
+Original
+General Draw
+Res NonRes Preference
+Unrestricted
+Restricted
+3226
+Determined 
+by Draw
+Determined 
+by Draw
+N/A33
+ResNonResResNonRes
+Unrestricted
+Restricted
+Drawn Out At
+24 Pref 
+Points
+29 Pref 
+Points
+None 
+Drawn
+None 
+Drawn
+7 Pref Points6 Pref Points
+# Drawn at Final Level4 of 275 of 15N/AN/A2 of 41 of 4
+% Drawn at Final Level15%33%N/AN/A50%25%
+EE002E1R  
+General AppsLPP Apps
+Total Choice 1 189143
+Total Choice 2 2462
+Total Choice 3 940
+Total Choice 4 540
+Regulation Level# Drawn
+LPP Unrestricted (up to) 10%3
+LPP Restricted (up to) 10%3
+Youth Preference (up to) N/AN/A
+NonResident Cap (up to) 20%5
+Hybrid Draw (up to) 20%5
+Pre-Draw Applicants
+AdultYouthLandowner (LPP)
+ChoicePreference Points
+Res NonRes Res NonRes 
+UnrestrictedRestricted
+1
+29-15----
+28-23----
+27-17----
+26615----
+25718----
+242714----
+232415----
+222511----
+213417----
+203512----
+193210----
+18326----
+17228----
+162514----
+154110----
+144418----
+133511----
+123417----
+114910----
+104310----
+96013----
+85715--1-
+76616--44
+673141194
+5671911-5-
+449159133
+3612414164
+2642716-55
+Post-Draw Successful
+AdultYouthLandowner (LPP)
+ChoicePreference Points
+Res NonRes Res NonRes 
+UnrestrictedRestricted
+1
+29-5----
+28------
+27------
+266-----
+256-----
+244-----
+23------
+221-----
+21------
+20------
+19------
+18------
+171-----
+16------
+15------
+141-----
+13------
+12------
+111-----
+10------
+91-----
+8----1-
+7----22
+6-----1
+5------
+4------
+3------
+2------
+Post-Draw
+Successful
+# DrawnBalanceRes NonRes ResNonRes
+Unrestricted
+Restricted
+3202150033
+66%16%0%0%9%9%
+                  Colorado Parks and Wildlife  
+                 2021 Primary ELK Post Draw Report
+Draw Recap
+5/14/2021 11:52:54 PM
+Page 6 of 963
+
+1
+11025126843
+010971311365
+Total Choice 11223536108244328
+Total Choice 210512313522
+Total Choice 336523300
+Total Choice 415362100
+Grand Total1379747126334530
+Landowner Leftover Choice 111
+Landowner Leftover Choice 200
+Landowner Leftover Choice 300
+1
+1------
+0------
+Total Choice 12150033
+Total Choice 2000000
+Total Choice 3000000
+Total Choice 4000000
+Grand Total2150033
+Landowner Leftover Choice 100
+Landowner Leftover Choice 200
+Landowner Leftover Choice 300
+                  Colorado Parks and Wildlife  
+                 2021 Primary ELK Post Draw Report
+Draw Recap
+5/14/2021 11:52:54 PM
+Page 7 of 963
+
+# DrawnHunt CodeList
+10EE002O1AA
+Remaining 
+Balance
+0
+Total Quota 
+Amount
+10
+Pre-Draw
+Quotas
+QuotaAdultYouth Landowner (LPP)
+Original
+General Draw
+Res NonRes Preference
+Unrestricted
+Restricted
+108
+Determined 
+by Draw
+Determined 
+by Draw
+N/A11
+ResNonResResNonRes
+Unrestricted
+Restricted
+Drawn Out At
+22 Pref 
+Points
+28 Pref 
+Points
+None 
+Drawn
+None 
+Drawn
+7 Pref Points7 Pref Points
+# Drawn at Final Level2 of 111 of 1N/AN/A1 of 31 of 3
+% Drawn at Final Level18%100%N/AN/A33%33%
+EE002O1A  
+General AppsLPP Apps
+Total Choice 1 53616
+Total Choice 2 1454
+Total Choice 3 600
+Total Choice 4 520
+Regulation Level# Drawn
+LPP Unrestricted (up to) 10%1
+LPP Restricted (up to) 10%1
+Youth Preference (up to) N/AN/A
+NonResident Cap (up to) 20%1
+Hybrid Draw (up to) 20%1
+Pre-Draw Applicants
+AdultYouthLandowner (LPP)
+ChoicePreference Points
+Res NonRes Res NonRes 
+UnrestrictedRestricted
+1
+28-1----
+27-3----
+2612----
+25-2----
+2411----
+2324----
+22113----
+2192----
+2024----
+1993----
+187-----
+1772----
+1683----
+1582----
+1442----
+1382----
+12123----
+11111----
+10103----
+9121----
+8186----
+7123--33
+6166----
+5134----
+420121-41
+32323--41
+22230342-
+127357121
+Post-Draw Successful
+AdultYouthLandowner (LPP)
+ChoicePreference Points
+Res NonRes Res NonRes 
+UnrestrictedRestricted
+1
+28-1----
+27------
+261-----
+25------
+241-----
+232-----
+222-----
+21------
+20------
+19------
+181-----
+17------
+16------
+15------
+14------
+13------
+12------
+11------
+10------
+9------
+8------
+7----11
+6------
+5------
+4------
+3------
+2------
+1------
+Post-Draw
+Successful
+# DrawnBalanceRes NonRes ResNonRes
+Unrestricted
+Restricted
+100710011
+70%10%0%0%10%10%
+                  Colorado Parks and Wildlife  
+                 2021 Primary ELK Post Draw Report
+Draw Recap
+5/14/2021 11:52:54 PM
+Page 8 of 963
+
+103444511-
+Total Choice 1307207166166
+Total Choice 268741244
+Total Choice 325350000
+Total Choice 416351000
+Grand Total4163511882010
+Landowner Leftover Choice 100
+Landowner Leftover Choice 211
+Landowner Leftover Choice 300
+10------
+Total Choice 1710011
+Total Choice 2000000
+Total Choice 3000000
+Total Choice 4000000
+Grand Total710011
+Landowner Leftover Choice 100
+Landowner Leftover Choice 200
+Landowner Leftover Choice 300
+                  Colorado Parks and Wildlife  
+                 2021 Primary ELK Post Draw Report
+Draw Recap
+5/14/2021 11:52:54 PM
+Page 9 of 963
+
+# DrawnHunt CodeList
+10EE003O1MA
+Remaining 
+Balance
+0
+Total Quota 
+Amount
+10
+Pre-Draw
+Quotas
+QuotaAdultYouth Landowner (LPP)
+Original
+General Draw
+Res NonRes Preference
+Unrestricted
+Restricted
+1010
+Determined 
+by Draw
+Determined 
+by Draw
+N/AN/AN/A
+ResNonResResNonRes
+Unrestricted
+Restricted
+Drawn Out At
+1 Pref 
+Points
+4 Pref 
+Points
+None 
+Drawn
+None 
+Drawn
+N/AN/A
+# Drawn at Final Level4 of 51 of 1N/AN/AN/AN/A
+% Drawn at Final Level80%100%N/AN/AN/AN/A
+EE003O1M  
+General AppsLPP Apps
+Total Choice 1 340
+Total Choice 2 200
+Total Choice 3 130
+Total Choice 4 90
+Regulation Level# Drawn
+LPP Unrestricted (up to) N/AN/A
+LPP Restricted (up to) N/AN/A
+Youth Preference (up to) N/AN/A
+NonResident Cap (up to) 35%2
+Hybrid Draw (up to) N/AN/A
+Pre-Draw Applicants
+AdultYouthLandowner (LPP)
+ChoicePreference Points
+Res NonRes Res NonRes 
+UnrestrictedRestricted
+1
+71-----
+6------
+5-1----
+4-1----
+3------
+23-----
+15-----
+016412--
+Total Choice 12561200
+Total Choice 21441100
+Total Choice 31111000
+Total Choice 4810000
+Grand Total58123300
+Landowner Leftover Choice 100
+Landowner Leftover Choice 200
+Landowner Leftover Choice 300
+Post-Draw Successful
+AdultYouthLandowner (LPP)
+ChoicePreference Points
+Res NonRes Res NonRes 
+UnrestrictedRestricted
+1
+71-----
+6------
+5-1----
+4-1----
+3------
+23-----
+14-----
+0------
+Total Choice 1820000
+Total Choice 2000000
+Total Choice 3000000
+Total Choice 4000000
+Grand Total820000
+Landowner Leftover Choice 100
+Landowner Leftover Choice 200
+Landowner Leftover Choice 300
+Post-Draw
+Successful
+# DrawnBalanceRes NonRes ResNonRes
+Unrestricted
+Restricted
+100820000
+80%20%0%0%0%0%
+                  Colorado Parks and Wildlife  
+                 2021 Primary ELK Post Draw Report
+Draw Recap
+5/14/2021 11:52:54 PM
+Page 10 of 963
+
+# DrawnHunt CodeList
+1000EE003O1RA
+Remaining 
+Balance
+0
+Total Quota 
+Amount
+1000
+Pre-Draw
+Quotas
+QuotaAdultYouth Landowner (LPP)
+Original
+General Draw
+Res NonRes Preference
+Unrestricted
+Restricted
+10001000
+Determined 
+by Draw
+Determined 
+by Draw
+N/AN/AN/A
+ResNonResResNonRes
+Unrestricted
+Restricted
+Drawn Out At
+0 Pref 
+Points
+1 Pref 
+Points
+0 Pref 
+Points
+1 Pref 
+Points
+N/AN/A
+# Drawn at Final Level64 of 839
+241 of 
+421
+8 of 1264 of 6N/AN/A
+% Drawn at Final Level8%57%6%67%N/AN/A
+
+EE003O1R  
+General AppsLPP Apps
+Total Choice 1 27550
+Total Choice 2 7430
+Total Choice 3 2890
+Total Choice 4 1360
+Regulation Level# Drawn
+LPP Unrestricted (up to) N/AN/A
+LPP Restricted (up to) N/AN/A
+Youth Preference (up to) N/AN/A
+NonResident Cap (up to) 35%350
+Hybrid Draw (up to) N/AN/A
+Pre-Draw Applicants
+AdultYouthLandowner (LPP)
+ChoicePreference Points
+Res NonRes Res NonRes 
+UnrestrictedRestricted
+1
+171-----
+16------
+15------
+14------
+13-1----
+121-----
+11------
+10-2----
+9-2----
+823----
+724----
+6-4----
+5111---
+4391---
+3223321--
+2447225--
+1503421446--
+083956012637--
+Total Choice 1141811121764900
+Total Choice 2464199681200
+Total Choice 31916927200
+Total Choice 475517300
+Grand Total214814312786600
+
+Landowner Leftover Choice 100
+Landowner Leftover Choice 200
+Landowner Leftover Choice 300
+
+Post-Draw Successful
+AdultYouthLandowner (LPP)
+ChoicePreference Points
+Res NonRes Res NonRes 
+UnrestrictedRestricted
+1
+171-----
+16------
+15------
+14------
+13------
+121-----
+11------
+10-2----
+9-2----
+822----
+714----
+6-4----
+5111---
+4391---
+3202621--
+2414915--
+1461241424--
+064-8---
