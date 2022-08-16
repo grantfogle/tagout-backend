@@ -6,4 +6,6 @@ package-lock.json
 test/*.log
 .env
 
+elk.txt
+elk1.txt
 2021ElkDrawRecap.pdf

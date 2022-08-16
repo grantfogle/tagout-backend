@@ -5,6 +5,7 @@ const pdfParse = require('pdf-parse');
 const app = express();
 const fs = require('fs');
 const { getEnabledCategories } = require("trace_events");
+const res = require("express/lib/response");
 
 // app.get('/', (req, res) => {
 //     res.send('hey grant');
@@ -26,7 +27,6 @@ app.post('/extract-text', (req, res) => {
 });
 
 app.get('/convert-to-json', async () => {
-    console.log('cats');
     // await fs.readFile('./elk.txt', function(text) {
     //     const textByLine = text.split('\n');
     //     console.log(textByLine);
@@ -35,8 +35,6 @@ app.get('/convert-to-json', async () => {
 
     var newlines = text.split('\n');
     var replacedTexts = removeUnneededText(newlines);
-
-    console.log(replacedTexts);
     // remove unneeded text
     // break up text by preference point
     // ee0001e1r
@@ -45,7 +43,34 @@ app.get('/convert-to-json', async () => {
 
 function removeUnneededText(text) {
     // 
-    console.log(text);
+    // const 
+    let i = 0;
+    let finalArr = [];
+    // create an index for the array
+    while (i < text.length) {
+        if (text[i].length !== 0 &&
+            !text[i].includes('Landowner Leftover') &&
+            !text[i].includes('UnrestrictedRestricted') &&
+            !text[i].includes('ChoicePreference Points') &&
+            !text[i].includes('Res NonRes Res NonRes') &&
+            !text[i].includes('AdultYouthLandowner (LPP)') &&
+            !text[i].includes('ChoicePreference Points')) {
+            finalArr.push(text[i]);
+        }
+        i++;
+    }
+    console.log('bing', finalArr, 'final arr');
+    // get regex pattern for start of
+    // ee, ef, em
+    // 
+
+    // finalJson
+    // will contain hunt code - ee/ef/eo
+    // data object
+    // first choice
+    // second choice
+    // third choice
+
     // Post-DrawSuccessful# DrawnBalanceRes NonRes ResNonResUnrestrictedRestricted
     let finalText = text;
     let elimateTextCodes = [
