@@ -43,8 +43,21 @@ app.get('/convert-to-json', async (req, res) => {
 });
 
 function removeUnneededText(text) {
-    // 
-    // const 
+    // use regex to get hunt code,
+    // start a while loop to get to pre draw applicants
+    // push arr into new object
+    // do same with post-draw successful
+    // then get total choice 1, 2, 3, 4
+    // letter letter specifically
+    const species = ['ef, ee, em'];
+    // number number number
+    const unit = 001;
+    // 'letter number'
+    const season = ['O1']
+    // letter
+    const method = ['r', 'a', 'm']
+    // /E/
+
     let i = 0;
     let finalArr = [];
     let huntJson = {};
@@ -61,7 +74,13 @@ function removeUnneededText(text) {
             !text[i].includes('ChoicePreference Points') &&
             !text[i].includes('Res NonRes Res NonRes') &&
             !text[i].includes('AdultYouthLandowner (LPP)') &&
-            !text[i].includes('DrawnHunt CodeList')) {
+            !text[i].includes('DrawnHunt CodeList') &&
+            !text[i].includes('Colorado Parks and Wildlife') &&
+            !text[i].includes('2021 Primary ELK Post Draw Report') &&
+            !text[i].includes('5/14/2021') &&
+            !text[i].includes('Page')) {
+                // remaining
+                // balance
             finalArr.push(text[i]);
         }
         // if 
