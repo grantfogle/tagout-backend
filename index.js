@@ -26,7 +26,7 @@ app.post('/extract-text', (req, res) => {
     });
 });
 
-app.get('/convert-to-json', async () => {
+app.get('/convert-to-json', async (req, res) => {
     // await fs.readFile('./elk.txt', function(text) {
     //     const textByLine = text.split('\n');
     //     console.log(textByLine);
@@ -39,6 +39,7 @@ app.get('/convert-to-json', async () => {
     // break up text by preference point
     // ee0001e1r
     // then get the preference points
+    res.send(replacedTexts)
 });
 
 function removeUnneededText(text) {
@@ -46,20 +47,48 @@ function removeUnneededText(text) {
     // const 
     let i = 0;
     let finalArr = [];
+    let huntJson = {};
+
     // create an index for the array
+    // get it down to predraw and post draw
+    // remove 
     while (i < text.length) {
         if (text[i].length !== 0 &&
+            !(text[i] === ',') &&
+            (text[i].length > 1) &&
             !text[i].includes('Landowner Leftover') &&
             !text[i].includes('UnrestrictedRestricted') &&
             !text[i].includes('ChoicePreference Points') &&
             !text[i].includes('Res NonRes Res NonRes') &&
             !text[i].includes('AdultYouthLandowner (LPP)') &&
-            !text[i].includes('ChoicePreference Points')) {
+            !text[i].includes('DrawnHunt CodeList')) {
             finalArr.push(text[i]);
         }
+        // if 
+        // regex check
+        if (text[i].trim() === 'EE001E1R') {
+
+        }
+
+        if (text[i] === 'Pre-Draw Applicants') {
+            let secondCounter = 0;
+            // this gets the total count of 
+            while (!text[i + secondCounter].includes('Total Choice')) {
+                // 
+                secondCounter++;
+            }
+            console.log()
+            // iterate through array 
+            // continuing iterating through until we hit total choice
+        }
+
+        if (text[i] = 'Post-Draw Successful') {
+            // do same logic as pre-draw applicants
+            // get 
+        }
+
         i++;
     }
-    console.log('bing', finalArr, 'final arr');
     // get regex pattern for start of
     // ee, ef, em
     // 
@@ -70,25 +99,7 @@ function removeUnneededText(text) {
     // first choice
     // second choice
     // third choice
-
-    // Post-DrawSuccessful# DrawnBalanceRes NonRes ResNonResUnrestrictedRestricted
-    let finalText = text;
-    let elimateTextCodes = [
-        'Post-DrawSuccessful',
-        'DrawnBalance',
-        'Res',
-        'NonRes',
-        'DrawnHunt',
-        'Post-Draw Successful',
-        'AdultYouthLandowner (LPP)',
-        'ChoicePreference Points',
-        'UnrestrictedRestricted',
-        'Colorado Parks and Wildlife',
-    ];
-    // elimateTextCodes.forEach((eliminateText, i) => {
-    //     finalText = finalText.replace(eliminateText, '');
-    // });
-    return finalText;
+    return finalArr;
 }
 
 function breakUpArrayByDrawCode(elkArr) {
@@ -110,4 +121,4 @@ function breakUpArrayByDrawCode(elkArr) {
 // upload json to google fireba
 
 
-app.listen(3000)
+app.listen(3002)
