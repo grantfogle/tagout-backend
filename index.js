@@ -37,6 +37,10 @@ app.get('/convert-to-json', async (req, res) => {
 function removeUnneededText(text) {
     // use regex to get hunt code,
     const elkRegex = /E[A-Z]\d\d\d[A-Z]\d[A-Z]/;
+
+    let i = 0;
+    let huntJson = {};
+    let currentHuntCode = '';
     // start a while loop to get to pre draw applicants
     // push arr into new object
     // do same with post-draw successful
@@ -48,12 +52,7 @@ function removeUnneededText(text) {
     // if there are a lot of numbers, then chances are that there were more applicants early then later, you can add a flag to check manually
 
     // use seasons to only check for the seasons and methods you want to look for
-    // /E/
 
-    let i = 0;
-    let finalArr = [];
-    let huntJson = {};
-    console.log('cats')
     // create an index for the array
     // get it down to predraw and post draw
     // remove 
@@ -61,40 +60,34 @@ function removeUnneededText(text) {
         const trimmedText = text[i].trim();
 
         if (elkRegex.test(trimmedText) && trimmedText.length === 8) {
-            let counter = 0;
-            let firstChoice = [];
-            let secondChoice = [];
-            let thirdChoice = [];
-            // create another while loop which starts counting
-            while(!trimmedText[i+counter].includes('Total Choice')) {
-                if ()
-                
-            }
-            
-            huntJson[trimmedText] = {firstChoice, secondChoice, thirdChoice}
+            currentHuntCode = trimmedText;            
         }
 
-        // CAN MOST LIKELY REMOVE THIS LOGIC
-        // if (text[i].length !== 0 &&
-        //     !(text[i] === ',') &&
-        //     (text[i].length > 1) &&
-        //     !text[i].includes('Landowner Leftover') &&
-        //     !text[i].includes('UnrestrictedRestricted') &&
-        //     !text[i].includes('ChoicePreference Points') &&
-        //     !text[i].includes('Res NonRes Res NonRes') &&
-        //     !text[i].includes('AdultYouthLandowner (LPP)') &&
-        //     !text[i].includes('DrawnHunt CodeList') &&
-        //     !text[i].includes('Colorado Parks and Wildlife') &&
-        //     !text[i].includes('2021 Primary ELK Post Draw Report') &&
-        //     !text[i].includes('5/14/2021') &&
-        //     !text[i].includes('Page')) {
-                // remaining
-                // balance
-        //     finalArr.push(text[i]);
-        // }
-        // if 
-        // regex check
+        if (trimmedText === 'Pre-Draw Applicants') {
+            const preDrawStats = [];
+            let secondIndex = 1;
+            let pointCount = 0;
+            while (!text[i+secondIndex].includes('Post') && !text[i+secondIndex].includes('Total Choice')) {
+                const secondTrimmedText =  text[i+secondIndex].trim()
 
+                if (!isNaN(secondTrimmedText.charAt(0)) && secondTrimmedText.length > 1) {
+                    pointCount++;
+                    preDrawStats.push(secondTrimmedText);
+                }
+                secondIndex++;
+            }
+
+            i += (secondIndex - 1);
+            huntJson[currentHuntCode] = {
+                firstChoice: {
+                    preDraw: preDrawStats
+                }
+            };
+        }
+
+        if (trimmedText === 'Post-Draw Successful') {
+
+        }
         // if (text[i] === 'Pre-Draw Applicants') {
         //     let secondCounter = 0;
             // this gets the total count of 
