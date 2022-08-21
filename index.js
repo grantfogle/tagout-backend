@@ -27,84 +27,89 @@ app.post('/extract-text', (req, res) => {
 });
 
 app.get('/convert-to-json', async (req, res) => {
-    // await fs.readFile('./elk.txt', function(text) {
-    //     const textByLine = text.split('\n');
-    //     console.log(textByLine);
-    // })
     var text = fs.readFileSync("./elk.txt", 'utf-8');
 
     var newlines = text.split('\n');
     var replacedTexts = removeUnneededText(newlines);
-    // remove unneeded text
-    // break up text by preference point
-    // ee0001e1r
-    // then get the preference points
     res.send(replacedTexts)
 });
 
 function removeUnneededText(text) {
     // use regex to get hunt code,
+    const elkRegex = /E[A-Z]\d\d\d[A-Z]\d[A-Z]/;
     // start a while loop to get to pre draw applicants
     // push arr into new object
     // do same with post-draw successful
     // then get total choice 1, 2, 3, 4
     // letter letter specifically
-    const species = ['ef, ee, em'];
-    // number number number
-    const unit = 001;
-    // 'letter number'
-    const season = ['O1']
-    // letter
-    const method = ['r', 'a', 'm']
+
+    // from there you can probably figure out some basic mafs
+    // use counter to get the count of 
+    // if there are a lot of numbers, then chances are that there were more applicants early then later, you can add a flag to check manually
+
+    // use seasons to only check for the seasons and methods you want to look for
     // /E/
 
     let i = 0;
     let finalArr = [];
     let huntJson = {};
-
+    console.log('cats')
     // create an index for the array
     // get it down to predraw and post draw
     // remove 
     while (i < text.length) {
-        if (text[i].length !== 0 &&
-            !(text[i] === ',') &&
-            (text[i].length > 1) &&
-            !text[i].includes('Landowner Leftover') &&
-            !text[i].includes('UnrestrictedRestricted') &&
-            !text[i].includes('ChoicePreference Points') &&
-            !text[i].includes('Res NonRes Res NonRes') &&
-            !text[i].includes('AdultYouthLandowner (LPP)') &&
-            !text[i].includes('DrawnHunt CodeList') &&
-            !text[i].includes('Colorado Parks and Wildlife') &&
-            !text[i].includes('2021 Primary ELK Post Draw Report') &&
-            !text[i].includes('5/14/2021') &&
-            !text[i].includes('Page')) {
+        const trimmedText = text[i].trim();
+
+        if (elkRegex.test(trimmedText) && trimmedText.length === 8) {
+            let counter = 0;
+            let firstChoice = [];
+            let secondChoice = [];
+            let thirdChoice = [];
+            // create another while loop which starts counting
+            while(!trimmedText[i+counter].includes('Total Choice')) {
+                if ()
+                
+            }
+            
+            huntJson[trimmedText] = {firstChoice, secondChoice, thirdChoice}
+        }
+
+        // CAN MOST LIKELY REMOVE THIS LOGIC
+        // if (text[i].length !== 0 &&
+        //     !(text[i] === ',') &&
+        //     (text[i].length > 1) &&
+        //     !text[i].includes('Landowner Leftover') &&
+        //     !text[i].includes('UnrestrictedRestricted') &&
+        //     !text[i].includes('ChoicePreference Points') &&
+        //     !text[i].includes('Res NonRes Res NonRes') &&
+        //     !text[i].includes('AdultYouthLandowner (LPP)') &&
+        //     !text[i].includes('DrawnHunt CodeList') &&
+        //     !text[i].includes('Colorado Parks and Wildlife') &&
+        //     !text[i].includes('2021 Primary ELK Post Draw Report') &&
+        //     !text[i].includes('5/14/2021') &&
+        //     !text[i].includes('Page')) {
                 // remaining
                 // balance
-            finalArr.push(text[i]);
-        }
+        //     finalArr.push(text[i]);
+        // }
         // if 
         // regex check
-        if (text[i].trim() === 'EE001E1R') {
 
-        }
-
-        if (text[i] === 'Pre-Draw Applicants') {
-            let secondCounter = 0;
+        // if (text[i] === 'Pre-Draw Applicants') {
+        //     let secondCounter = 0;
             // this gets the total count of 
-            while (!text[i + secondCounter].includes('Total Choice')) {
+            // while (!text[i + secondCounter].includes('Total Choice')) {
                 // 
-                secondCounter++;
-            }
-            console.log()
+            //     secondCounter++;
+            // }
             // iterate through array 
             // continuing iterating through until we hit total choice
-        }
+        // }
 
-        if (text[i] = 'Post-Draw Successful') {
+        // if (text[i] = 'Post-Draw Successful') {
             // do same logic as pre-draw applicants
             // get 
-        }
+        // }
 
         i++;
     }
@@ -118,7 +123,7 @@ function removeUnneededText(text) {
     // first choice
     // second choice
     // third choice
-    return finalArr;
+    return huntJson;
 }
 
 function breakUpArrayByDrawCode(elkArr) {
