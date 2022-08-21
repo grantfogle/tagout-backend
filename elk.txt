@@ -2,11 +2,6 @@ DrawnHunt CodeList
 
 EE001E1R  
 Pre-Draw Applicants
-
-1
-
-Preference Points
-    Res NonRes Res NonRes 
 28  -   1      -    -       - -
 27-2----
 2623----

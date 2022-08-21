@@ -35,7 +35,6 @@ app.get('/convert-to-json', async (req, res) => {
 });
 
 function removeUnneededText(text) {
-    // use regex to get hunt code,
     const elkRegex = /E[A-Z]\d\d\d[A-Z]\d[A-Z]/;
 
     let i = 0;
@@ -58,17 +57,25 @@ function removeUnneededText(text) {
     // remove 
     while (i < text.length) {
         const trimmedText = text[i].trim();
+        // console.log(trimmedText);
 
         if (elkRegex.test(trimmedText) && trimmedText.length === 8) {
-            currentHuntCode = trimmedText;            
+            currentHuntCode = trimmedText;
+            huntJson[currentHuntCode] = {
+                firstChoice: {
+                    preDraw: [],
+                    postDraw: []
+                }
+            }
         }
 
         if (trimmedText === 'Pre-Draw Applicants') {
+            console.log('PREDRAWAPPLICANTS')
             const preDrawStats = [];
             let secondIndex = 1;
             let pointCount = 0;
-            while (!text[i+secondIndex].includes('Post') && !text[i+secondIndex].includes('Total Choice')) {
-                const secondTrimmedText =  text[i+secondIndex].trim()
+            while (text[i+secondIndex] && !text[i+secondIndex].includes('Post') && !text[i+secondIndex].includes('Total Choice')) {
+                let secondTrimmedText =  text[i+secondIndex].trim();
 
                 if (!isNaN(secondTrimmedText.charAt(0)) && secondTrimmedText.length > 1) {
                     pointCount++;
@@ -78,31 +85,28 @@ function removeUnneededText(text) {
             }
 
             i += (secondIndex - 1);
-            huntJson[currentHuntCode] = {
-                firstChoice: {
-                    preDraw: preDrawStats
-                }
-            };
+            huntJson[currentHuntCode].firstChoice.preDraw = preDrawStats;
         }
 
         if (trimmedText === 'Post-Draw Successful') {
+            console.log('POSTDRAWAPPLICANTS')
+            let postDrawStats = [];
+            let secondIndex = 1;
+            let pointCount = 0;
 
+            while (text[i+secondIndex] && text[i+secondIndex] !== 'Post-Draw') {
+                let secondTrimmedText =  text[i+secondIndex].trim();
+
+                if (!isNaN(secondTrimmedText.charAt(0)) && secondTrimmedText.length > 1) {
+                    postDrawStats.push(secondTrimmedText);
+                    pointCount++;
+                }
+                secondIndex++;
+            }
+
+            i += (secondIndex - 1);
+            huntJson[currentHuntCode].firstChoice.postDraw = postDrawStats;
         }
-        // if (text[i] === 'Pre-Draw Applicants') {
-        //     let secondCounter = 0;
-            // this gets the total count of 
-            // while (!text[i + secondCounter].includes('Total Choice')) {
-                // 
-            //     secondCounter++;
-            // }
-            // iterate through array 
-            // continuing iterating through until we hit total choice
-        // }
-
-        // if (text[i] = 'Post-Draw Successful') {
-            // do same logic as pre-draw applicants
-            // get 
-        // }
 
         i++;
     }
