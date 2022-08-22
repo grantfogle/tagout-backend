@@ -6,6 +6,7 @@ const app = express();
 const fs = require('fs');
 const { getEnabledCategories } = require("trace_events");
 const res = require("express/lib/response");
+const { emitKeypressEvents } = require("readline");
 
 // app.get('/', (req, res) => {
 //     res.send('hey grant');
@@ -57,20 +58,19 @@ function removeUnneededText(text) {
     // remove 
     while (i < text.length) {
         const trimmedText = text[i].trim();
-        // console.log(trimmedText);
 
         if (elkRegex.test(trimmedText) && trimmedText.length === 8) {
             currentHuntCode = trimmedText;
             huntJson[currentHuntCode] = {
                 firstChoice: {
                     preDraw: [],
-                    postDraw: []
-                }
+                    postDraw: [],
+                },
+                totalChoice: []
             }
         }
 
         if (trimmedText === 'Pre-Draw Applicants') {
-            console.log('PREDRAWAPPLICANTS')
             const preDrawStats = [];
             let secondIndex = 1;
             let pointCount = 0;
@@ -89,7 +89,6 @@ function removeUnneededText(text) {
         }
 
         if (trimmedText === 'Post-Draw Successful') {
-            console.log('POSTDRAWAPPLICANTS')
             let postDrawStats = [];
             let secondIndex = 1;
             let pointCount = 0;
@@ -108,19 +107,48 @@ function removeUnneededText(text) {
             huntJson[currentHuntCode].firstChoice.postDraw = postDrawStats;
         }
 
+        // get second, third, and fourth choices
+
+        // if (trimmedText.includes('Total Choice')) {
+        //     console.log(trimmedText);
+        // }
+        if (trimmedText.includes('Total Choice')) {
+            huntJson[currentHuntCode].totalChoice.push(trimmedText);
+        }
+
         i++;
     }
-    // get regex pattern for start of
-    // ee, ef, em
-    // 
 
-    // finalJson
-    // will contain hunt code - ee/ef/eo
-    // data object
-    // first choice
-    // second choice
-    // third choice
+    organizeHuntCodes(huntJson);
+
     return huntJson;
+}
+
+function organizeHuntCodes(huntObj) {
+    const firstChoice = {};
+    const huntObjFinal = {};
+    // const firstChoiceLength = huntObj.firstChoice.length;
+
+    for (let key in huntObj) {
+        const preferencePointsLen = huntObj[key].firstChoice.preDraw.length;
+        let currentPreferencePoint = 0;
+
+        huntObj[key].firstChoice.preDraw.forEach((unit, index) => {
+            let preferencePoint;
+            let breakdown = {};
+
+            if (preferencePointsLen > 10 ) {
+                // if first 
+            }
+            console.log(unit)
+            // get first index
+            //  
+
+        });
+        // huntObj[key].firstChoice.forEach(unit => {
+        //     console.log(unit);
+        // });
+    }
 }
 
 function breakUpArrayByDrawCode(elkArr) {
@@ -130,6 +158,7 @@ function breakUpArrayByDrawCode(elkArr) {
     // you will index the first unit and increase count
     // while 
     elkArr.forEach(unit => {
+        console.log(unit)
         // if 
         // while
     })
