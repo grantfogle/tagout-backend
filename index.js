@@ -119,8 +119,37 @@ function removeUnneededText(text) {
     return huntJson;
 }
 
-function breakdownDrawNumbers(drawNumber) {
+function breakdownDrawNumbers(preDraw, postDraw) {
+    const preDrawLen = preDraw.length - 1;
+    let currentPreferencePoint = 0;
+    const huntStr = huntObj[key].firstChoice.preDraw;
 
+    for (let i = preDrawLen; i >= 0; i--) {
+        console.log('i', huntStr[i]);
+        let currentStr = huntStr[i].replace(/\s/g, '');
+        let preferencePoint = 0;
+        let drawStr = '';
+        console.log('stinky kaila', currentStr)
+        if (2 < (preDrawLen - i)) {
+            preferencePoint = currentStr.charAt(0);
+            drawStr = currentStr.slice(1, currentStr.length - 1)
+        } else if ((preDrawLen - i) < 10 && currentStr.charAt(0) !== 1) {
+            preferencePoint = currentStr.charAt(0);
+            drawStr = currentStr.slice(1, currentStr.length - 1)
+        } else {
+            preferencePoint = currentStr.slice(0, 2);
+            drawStr = currentStr.slice(2, currentStr.length - 1)
+            // double digit codes 
+        }
+        firstChoiceObj[preferencePoint] = drawStr;
+        // console.log(firstChoiceObj);
+    }
+    // let res = 
+    // structure is [key]
+    // let nonRes = 
+    // if length of draw numbers is 6 then we are good
+    // if it's greater then 6 more complex
+    return {res}
 }
 
 function organizeHuntCodes(huntObj) {
@@ -129,34 +158,15 @@ function organizeHuntCodes(huntObj) {
     // const firstChoiceLength = huntObj.firstChoice.length;
 
     for (let key in huntObj) {
-        const preferencePointsLen = huntObj[key].firstChoice.preDraw.length - 1;
-        let currentPreferencePoint = 0;
-        const huntStr = huntObj[key].firstChoice.preDraw;
-        let firstChoiceObj = {}
-
-        for (let i = preferencePointsLen; i >= 0; i--) {
-            console.log('i', huntStr[i]);
-            let currentStr = huntStr[i].replace(/\s/g, '');
-            let preferencePoint = 0;
-            let drawStr = '';
-            console.log('stinky kaila', currentStr)
-            if (2 < (preferencePointsLen - i)) {
-                preferencePoint = currentStr.charAt(0);
-                drawStr = currentStr.slice(1, currentStr.length - 1)
-            } else if ((preferencePointsLen - i) < 10 && currentStr.charAt(0) !== 1) {
-                preferencePoint = currentStr.charAt(0);
-                drawStr = currentStr.slice(1, currentStr.length - 1)
-            } else {
-                preferencePoint = currentStr.slice(0, 2);
-                drawStr = currentStr.slice(2, currentStr.length - 1)
-                // double digit codes 
-            }
-            firstChoiceObj[preferencePoint] = drawStr;
-            // console.log(firstChoiceObj);
+        let firstChoiceObj = {
+            firstChoice: {}
         }
-        // huntObjFinal[key] = firstChoiceObj;
+
+        // break out predraw
+        // break out postdraw
+        firstChoiceObj.firstChoice[key] = breakdownDrawNumbers(huntObj[key].firstChoice.preDraw, huntObj[key].firstChoice.postDraw);
     }
-    console.log(huntObjFinal)
+    console.log(huntObjFinal);
 }
 
 app.listen(3002)
