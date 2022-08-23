@@ -107,11 +107,6 @@ function removeUnneededText(text) {
             huntJson[currentHuntCode].firstChoice.postDraw = postDrawStats;
         }
 
-        // get second, third, and fourth choices
-
-        // if (trimmedText.includes('Total Choice')) {
-        //     console.log(trimmedText);
-        // }
         if (trimmedText.includes('Total Choice')) {
             huntJson[currentHuntCode].totalChoice.push(trimmedText);
         }
@@ -124,51 +119,44 @@ function removeUnneededText(text) {
     return huntJson;
 }
 
+function breakdownDrawNumbers(drawNumber) {
+
+}
+
 function organizeHuntCodes(huntObj) {
     const firstChoice = {};
     const huntObjFinal = {};
     // const firstChoiceLength = huntObj.firstChoice.length;
 
     for (let key in huntObj) {
-        const preferencePointsLen = huntObj[key].firstChoice.preDraw.length;
+        const preferencePointsLen = huntObj[key].firstChoice.preDraw.length - 1;
         let currentPreferencePoint = 0;
+        const huntStr = huntObj[key].firstChoice.preDraw;
+        let firstChoiceObj = {}
 
-        huntObj[key].firstChoice.preDraw.forEach((unit, index) => {
-            let preferencePoint;
-            let breakdown = {};
-
-            if (preferencePointsLen > 10 ) {
-                // if first 
+        for (let i = preferencePointsLen; i >= 0; i--) {
+            console.log('i', huntStr[i]);
+            let currentStr = huntStr[i].replace(/\s/g, '');
+            let preferencePoint = 0;
+            let drawStr = '';
+            console.log('stinky kaila', currentStr)
+            if (2 < (preferencePointsLen - i)) {
+                preferencePoint = currentStr.charAt(0);
+                drawStr = currentStr.slice(1, currentStr.length - 1)
+            } else if ((preferencePointsLen - i) < 10 && currentStr.charAt(0) !== 1) {
+                preferencePoint = currentStr.charAt(0);
+                drawStr = currentStr.slice(1, currentStr.length - 1)
+            } else {
+                preferencePoint = currentStr.slice(0, 2);
+                drawStr = currentStr.slice(2, currentStr.length - 1)
+                // double digit codes 
             }
-            console.log(unit)
-            // get first index
-            //  
-
-        });
-        // huntObj[key].firstChoice.forEach(unit => {
-        //     console.log(unit);
-        // });
+            firstChoiceObj[preferencePoint] = drawStr;
+            // console.log(firstChoiceObj);
+        }
+        // huntObjFinal[key] = firstChoiceObj;
     }
+    console.log(huntObjFinal)
 }
-
-function breakUpArrayByDrawCode(elkArr) {
-
-    // scroll through the string/array
-    // 'EE001E1R  ', regex to match the elk unit, from there create a while loop
-    // you will index the first unit and increase count
-    // while 
-    elkArr.forEach(unit => {
-        console.log(unit)
-        // if 
-        // while
-    })
-}
-// break up array by draw code
-// crawl pdf
-// figure out code of unit
-// get res and non res info
-// covert to json
-// upload json to google fireba
-
 
 app.listen(3002)
