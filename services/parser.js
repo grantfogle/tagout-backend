@@ -71,33 +71,45 @@ function removeUnneededText(text) {
 
 function breakdownDrawNumbers(preDraw, postDraw) {
     const preDrawLen = preDraw.length - 1;
+    const postDrawLen = postDraw.length - 1;
     let currentPreferencePoint = 0;
-    const huntStr = preDraw;
-
+    let postDrawPreferencePoint = 0;
+    let preDrawStats = {};
+    let postDrawStats = {};
+    
+    // get preDrawLogic
     for (let i = preDrawLen; i >= 0; i--) {
-        let currentStr = huntStr[i].replace(/\s/g, '');
+        let currentStr = preDraw[i].replace(/\s/g, '');
         let preferencePoint = 0;
         let drawStr = '';
 
-        console.log('stinky kaila', currentStr)
-        if (2 < (preDrawLen - i)) {
+        console.log('current draw code', currentStr)
+        console.log(preDrawLen, i)
+        if (2 >= (preDrawLen - i)) {
+            // gets first two indexs 0/1/2
             preferencePoint = currentStr.charAt(0);
             drawStr = currentStr.slice(1, currentStr.length - 1);
-        } else if ((preDrawLen - i) < 10 && currentStr.charAt(0) !== 1) {
+        // } else if ((preDrawLen - i) < 10 && currentStr.charAt(0) !== 1) {
+        } else if ((preDrawLen - i) < 10 && (currentStr.charAt(0) !== 1 && currentStr.charAt(0) !== 2)) {
+            // basically gets everything up to the 10 index
             preferencePoint = currentStr.charAt(0);
             drawStr = currentStr.slice(1, currentStr.length - 1);
         } else {
+            console.log('bang')
             preferencePoint = currentStr.slice(0, 2);
             drawStr = currentStr.slice(2, currentStr.length - 1);
             // double digit codes 
         }
-        firstChoiceObj[preferencePoint] = drawStr;
-        // console.log(firstChoiceObj);
+        console.log(preferencePoint, drawStr)
+        // console.log(firstChoiceObj)
+        preDrawStats[preferencePoint] = drawStr;
     }
+    console.log(preDrawStats);
+    // get postDraw Logic
     // let res = 
     // structure is [key]
     // let nonRes = 
-    return {res, nonRes}
+    // return {res, nonRes}
 }
 
 function getResNonResNumbers(pointNumbers) {
