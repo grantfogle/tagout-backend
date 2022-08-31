@@ -72,58 +72,83 @@ function removeUnneededText(text) {
 function breakdownDrawNumbers(preDraw, postDraw) {
     const preDrawLen = preDraw.length - 1;
     const postDrawLen = postDraw.length - 1;
-    let currentPreferencePoint = 0;
-    let postDrawPreferencePoint = 0;
-    let preDrawStats = {};
-    let postDrawStats = {};
-    
-    // get preDrawLogic
-    for (let i = preDrawLen; i >= 0; i--) {
-        let currentStr = preDraw[i].replace(/\s/g, '');
+    let preDrawStats = breakdownDrawStats(preDrawLen, preDraw);
+    let postDrawStats = breakdownDrawStats(postDrawLen, postDraw);
+    let preDrawStatsResNonRes = getResNonResNumbers(preDrawStats);
+    let postDrawStatsResNonRes = getResNonResNumbers(postDrawStats);
+    // console.log('PRE DRAW STATS', preDrawStats)
+    // console.log('POST DRAW STATS', postDrawStats)
+    return {preDrawStatsResNonRes, postDrawStatsResNonRes};
+}
+
+function breakdownDrawStats(arrLength, drawNums) {
+    let drawStats = {};
+    for (let i = arrLength; i >= 0; i--) {
+        let currentStr = drawNums[i].replace(/\s/g, '');
         let preferencePoint = 0;
         let drawStr = '';
 
-        console.log('current draw code', currentStr)
-        console.log(preDrawLen, i)
-        if (2 >= (preDrawLen - i)) {
+        if (2 >= (arrLength - i)) {
             // gets first two indexs 0/1/2
             preferencePoint = currentStr.charAt(0);
             drawStr = currentStr.slice(1, currentStr.length - 1);
         // } else if ((preDrawLen - i) < 10 && currentStr.charAt(0) !== 1) {
-        } else if ((preDrawLen - i) < 10 && (currentStr.charAt(0) !== 1 && currentStr.charAt(0) !== 2)) {
+        } else if ((arrLength - i) < 10 && (currentStr.charAt(0) !== 1 && currentStr.charAt(0) !== 2)) {
             // basically gets everything up to the 10 index
             preferencePoint = currentStr.charAt(0);
             drawStr = currentStr.slice(1, currentStr.length - 1);
         } else {
-            console.log('bang')
             preferencePoint = currentStr.slice(0, 2);
             drawStr = currentStr.slice(2, currentStr.length - 1);
             // double digit codes 
         }
-        console.log(preferencePoint, drawStr)
-        // console.log(firstChoiceObj)
-        preDrawStats[preferencePoint] = drawStr;
+        drawStats[preferencePoint] = drawStr;
     }
-    console.log(preDrawStats);
-    // get postDraw Logic
-    // let res = 
-    // structure is [key]
-    // let nonRes = 
-    // return {res, nonRes}
+    return drawStats; 
 }
 
-function getResNonResNumbers(pointNumbers) {
-    // if length of draw numbers is 6 then we are good
-    // if it's greater then 6 more complex
-    let res = 0;
-    let nonRes = 0;
-    if (pointNumbers.length === 6) {
-        res = pointNumbers.charAt(0);
-        nonRes = pointNumbers.charAt(1);
-    } else {
-        
-    }
 
+function getResNonResNumbers(pointNumbers) {
+    // console.log(pointNumbers)
+    let returnObj = {};
+    for (let key in pointNumbers) {
+        const drawNums = pointNumbers[key];
+        const totalLength = drawNums.length;
+        let res = 0;
+        let nonRes = 0;
+        if (totalLength <= 6) {
+            res = (drawNums.charAt(0) !== '-' ? Number(drawNums.charAt(0)) : 0);
+            nonRes = (drawNums.charAt(1) !== '-' ? Number(drawNums.charAt(1)) : 0);
+        } else {
+            if (totalLength % 2 === 0) {
+                let avgUnits = Math.ceil(totalLength / 6) + 1;
+                // if (totalLength > 9) {
+                //     avgUnits++;
+                // }
+                let secondIndex =  (avgUnits) * 2;
+                res =  Number(drawNums.slice(0, avgUnits));
+                nonRes = Number(drawNums.slice((avgUnits), secondIndex));
+                console.log('BANG', nonRes, secondIndex)
+            } else {
+                const avgUnits = Math.ceil(totalLength / 6) + 1;
+                res =  Number(drawNums.slice(0, avgUnits));
+                if (res > 0 && res < 100) {
+
+                } else if (res ) {
+
+                }
+
+            }
+            // 
+            // biggest
+            // 
+            // 83956012637-
+        }
+        returnObj[key] = {
+            res, nonRes
+        }
+    }
+    console.log('RETURN OBJ', returnObj);
 }
 
 function organizeHuntCodes(huntObj) {
