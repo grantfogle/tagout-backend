@@ -1,5 +1,5 @@
+// runs first
 function removeUnneededText(text) {
-    console.log('BING')
     const elkRegex = /E[A-Z]\d\d\d[A-Z]\d[A-Z]/;
 
     let i = 0;
@@ -64,9 +64,10 @@ function removeUnneededText(text) {
         i++;
     }
 
-    organizeHuntCodes(huntJson);
+    let data = organizeHuntCodes(huntJson);
+    return data;
 
-    return huntJson;
+ 
 }
 
 function breakdownDrawNumbers(preDraw, postDraw) {
@@ -74,11 +75,13 @@ function breakdownDrawNumbers(preDraw, postDraw) {
     const postDrawLen = postDraw.length - 1;
     let preDrawStats = breakdownDrawStats(preDrawLen, preDraw);
     let postDrawStats = breakdownDrawStats(postDrawLen, postDraw);
-    let preDrawStatsResNonRes = getResNonResNumbers(preDrawStats);
-    let postDrawStatsResNonRes = getResNonResNumbers(postDrawStats);
-    // console.log('PRE DRAW STATS', preDrawStats)
-    // console.log('POST DRAW STATS', postDrawStats)
-    return {preDrawStatsResNonRes, postDrawStatsResNonRes};
+    // get applicants stats
+    let applicantStats = getResNonResNumbers(preDrawStats);
+    // get success stats
+    let successStats = getResNonResNumbers(postDrawStats);
+    // console.log('PRE DRAW STATS', applicantStats)
+    // console.log('POST DRAW STATS', successStats)
+    return {applicantStats, successStats};
 }
 
 function breakdownDrawStats(arrLength, drawNums) {
@@ -92,7 +95,6 @@ function breakdownDrawStats(arrLength, drawNums) {
             // gets first two indexs 0/1/2
             preferencePoint = currentStr.charAt(0);
             drawStr = currentStr.slice(1, currentStr.length - 1);
-        // } else if ((preDrawLen - i) < 10 && currentStr.charAt(0) !== 1) {
         } else if ((arrLength - i) < 10 && (currentStr.charAt(0) !== 1 && currentStr.charAt(0) !== 2)) {
             // basically gets everything up to the 10 index
             preferencePoint = currentStr.charAt(0);
@@ -104,13 +106,15 @@ function breakdownDrawStats(arrLength, drawNums) {
         }
         drawStats[preferencePoint] = drawStr;
     }
+    // console.log(drawStats)
     return drawStats; 
 }
 
 
+
 function getResNonResNumbers(pointNumbers) {
-    // console.log(pointNumbers)
     let returnObj = {};
+
     for (let key in pointNumbers) {
         const drawNums = pointNumbers[key];
         const totalLength = drawNums.length;
@@ -122,13 +126,10 @@ function getResNonResNumbers(pointNumbers) {
         } else {
             if (totalLength % 2 === 0) {
                 let avgUnits = Math.ceil(totalLength / 6) + 1;
-                // if (totalLength > 9) {
-                //     avgUnits++;
-                // }
+            
                 let secondIndex =  (avgUnits) * 2;
                 res =  Number(drawNums.slice(0, avgUnits));
                 nonRes = Number(drawNums.slice((avgUnits), secondIndex));
-                console.log('BANG', nonRes, secondIndex)
             } else {
                 const avgUnits = Math.ceil(totalLength / 6) + 1;
                 res =  Number(drawNums.slice(0, avgUnits));
@@ -139,33 +140,63 @@ function getResNonResNumbers(pointNumbers) {
                 }
 
             }
-            // 
-            // biggest
-            // 
-            // 83956012637-
         }
         returnObj[key] = {
             res, nonRes
         }
     }
-    console.log('RETURN OBJ', returnObj);
+    // console.log('returnObj', returnObj);
+    return returnObj;
 }
 
 function organizeHuntCodes(huntObj) {
+    // get draw data and put it into a format where i can easily compile into 
+    // my final Obj
     const firstChoice = {};
-    const huntObjFinal = {};
-    // const firstChoiceLength = huntObj.firstChoice.length;
+    let huntObjFinal = {};
 
+    // breakdown first choice data
     for (let key in huntObj) {
         const preDraw = huntObj[key].firstChoice.preDraw;
         const postDraw =  huntObj[key].firstChoice.postDraw;
         let firstChoiceObj = {
-            firstChoice: {}
+            firstChoice: breakdownDrawNumbers(preDraw, postDraw)
         }
-
-        firstChoiceObj.firstChoice[key] = breakdownDrawNumbers(preDraw, postDraw);
+        // console.log(firstChoiceObj)
+        firstChoice[key] = firstChoiceObj;
     }
-    console.log(huntObjFinal);
+    // console.log(firstChoice);
+    huntObjFinal = formatDrawData(firstChoice);
+    return huntObjFinal;
+}
+
+function formatDrawData(drawData) {
+    let returnObj = {};
+    for (let huntCode in drawData) {
+            returnObj[huntCode] = {
+                firstChoice: getStatsByPreferencePoint(drawData[huntCode].firstChoice.applicantStats, drawData[huntCode].firstChoice.successStats)
+            }
+    }
+    console.log(returnObj)
+    return returnObj;
+}
+
+function getStatsByPreferencePoint(applicants, success) {
+    let returnObj = {};
+    for (let preferencePoint in applicants) {
+        returnObj[preferencePoint] = {
+            res: {
+                applicants: applicants[preferencePoint].res,
+                success: success[preferencePoint].res
+            },
+            nonRes: {
+                applicants: applicants[preferencePoint].nonRes,
+                success: success[preferencePoint].nonRes
+            }
+        }
+    }
+    console.log('RETURN OBJ', returnObj)
+    return returnObj;
 }
 
 module.exports = {removeUnneededText};

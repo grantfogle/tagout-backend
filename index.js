@@ -33,7 +33,7 @@ app.get('/convert-to-json', async (req, res) => {
 
     var newlines = text.split('\n');
     var replacedTexts = removeUnneededText(newlines);
-    res.send(replacedTexts)
+    res.send(replacedTexts);
 });
 
 app.listen(3002)
