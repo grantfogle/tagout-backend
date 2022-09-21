@@ -60,7 +60,6 @@ function removeUnneededText(text) {
         if (trimmedText.includes('Total Choice')) {
             huntJson[currentHuntCode].totalChoice.push(trimmedText);
         }
-
         i++;
     }
 
@@ -75,12 +74,8 @@ function breakdownDrawNumbers(preDraw, postDraw) {
     const postDrawLen = postDraw.length - 1;
     let preDrawStats = breakdownDrawStats(preDrawLen, preDraw);
     let postDrawStats = breakdownDrawStats(postDrawLen, postDraw);
-    // get applicants stats
     let applicantStats = getResNonResNumbers(preDrawStats);
-    // get success stats
     let successStats = getResNonResNumbers(postDrawStats);
-    // console.log('PRE DRAW STATS', applicantStats)
-    // console.log('POST DRAW STATS', successStats)
     return {applicantStats, successStats};
 }
 
@@ -92,21 +87,17 @@ function breakdownDrawStats(arrLength, drawNums) {
         let drawStr = '';
 
         if (2 >= (arrLength - i)) {
-            // gets first two indexs 0/1/2
             preferencePoint = currentStr.charAt(0);
             drawStr = currentStr.slice(1, currentStr.length - 1);
         } else if ((arrLength - i) < 10 && (currentStr.charAt(0) !== 1 && currentStr.charAt(0) !== 2)) {
-            // basically gets everything up to the 10 index
             preferencePoint = currentStr.charAt(0);
             drawStr = currentStr.slice(1, currentStr.length - 1);
         } else {
             preferencePoint = currentStr.slice(0, 2);
             drawStr = currentStr.slice(2, currentStr.length - 1);
-            // double digit codes 
         }
         drawStats[preferencePoint] = drawStr;
     }
-    // console.log(drawStats)
     return drawStats; 
 }
 
@@ -145,7 +136,6 @@ function getResNonResNumbers(pointNumbers) {
             res, nonRes
         }
     }
-    // console.log('returnObj', returnObj);
     return returnObj;
 }
 
@@ -162,10 +152,8 @@ function organizeHuntCodes(huntObj) {
         let firstChoiceObj = {
             firstChoice: breakdownDrawNumbers(preDraw, postDraw)
         }
-        // console.log(firstChoiceObj)
         firstChoice[key] = firstChoiceObj;
     }
-    // console.log(firstChoice);
     huntObjFinal = formatDrawData(firstChoice);
     return huntObjFinal;
 }
@@ -195,7 +183,6 @@ function getStatsByPreferencePoint(applicants, success) {
             }
         }
     }
-    console.log('RETURN OBJ', returnObj)
     return returnObj;
 }
 

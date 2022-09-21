@@ -33,6 +33,14 @@ app.get('/convert-to-json', async (req, res) => {
 
     var newlines = text.split('\n');
     var replacedTexts = removeUnneededText(newlines);
+
+    // var replactText = fs.writeFile("/tmp/elkStats.json", replacedTexts, function(err) {
+    //     if (err) {
+    //         return console.log(err);
+    //     }
+    //     console.log("The file was saved!");
+    // }); 
+
     res.send(replacedTexts);
 });
 
